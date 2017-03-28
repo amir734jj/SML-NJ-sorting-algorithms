@@ -43,20 +43,15 @@ fun insertionsort [] = []
 
 
 fun bsort [] = []
-|	bsort [x] = [x]
-|	bsort (x::y::xs) =   
-					if(x>y)
-						then y::x::xs
-					else if (x=y)
-						then x::y::xs
-					else 
-						x::bsort(y::xs);
-
-fun	bubblesort x = 
-				if (bsort x = x)
-					then x
-				else 
-					bubblesort (bsort x);
+|   bsort [x] = [x]
+|   bsort (x::y::xs) =   
+                    if(y<x) then
+                        y::bsort(x::xs)
+                    else
+                        x::bsort(y::xs);
+                    
+fun bubblesort [] = []
+|   bubblesort (x::xs) = bsort(x::(bubblesort(xs)));
 
 					
 				
