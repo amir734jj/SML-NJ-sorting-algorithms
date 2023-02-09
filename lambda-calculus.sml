@@ -17,7 +17,14 @@ fun multiply(n1,n2) =
   | Succ(v) => plus(multiply(v, n2), n2)
     ;
 
+fun expo(_,Zero) = Succ(Zero)
+| expo(Zero,_) = Zero
+| expo(base,Succ(Zero)) = base
+| exp(base,Succ(Succ(v))) = multiply(multiply(base, base), exp(base, v))
+;
+
 val five = to_nat(5);
 val six = to_nat(6);
 val eleven = plus(five, six);
 val thirty = multiply(five, six);
+val thirtysix = expo(six, six);
